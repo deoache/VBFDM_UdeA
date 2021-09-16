@@ -49,7 +49,7 @@ The fileset json files that contain a dictionary of the files per sample are in 
 ssh USERNAME@cmslpc-sl7.fnal.gov -L8xxx:localhost:8xxx
 
 # create a working directory and clone the repo (if you have not done yet)
-# git clone git@github.com:deoache/VBFDM_UdeA.git
+git clone git@github.com:deoache/VBFDM_UdeA.git
 
 # enable the coffea environment, either the python environment
 source coffeaenv/bin/activate
