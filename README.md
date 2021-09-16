@@ -14,7 +14,7 @@ bash Miniconda3-latest-Linux-x86_64.sh
 Verify the installation is successful by running conda info and check if the paths are pointing to your Miniconda installation. 
 If you cannot run conda command, check if you need to add the conda path to your PATH variable in your bashrc/zshrc file, e.g.,
 ```
-export PATH="$HOME/miniconda3/bin:$PATH"
+export PATH="$HOME/nobackup/miniconda3/bin:$PATH"
 ```
 To disable auto activation of the base environment:
 ```
