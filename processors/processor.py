@@ -106,10 +106,11 @@ class VBFProcessor(processor.ProcessorABC):
         )
         
         # baseline selection:
-        #   leading jets pT > 30
+        #   leading jets pT > 30 GeV
         #   leading jets |eta| < 5
         #   leading jets in opposite hemispheres
-        #   HT > 200 
+        #   HT > 200 GeV
+        #   MET > 50 GeV
         baseline = (
             (jets.pt[:,0] > 30)
             & (jets.pt[:,1] > 30)
