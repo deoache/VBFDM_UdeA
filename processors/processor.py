@@ -117,6 +117,7 @@ class VBFProcessor(processor.ProcessorABC):
             & (abs(jets.eta[:,1]) < 5)
             & (jets.eta[:,0] * jets.eta[:,1] < 0)
             & (ak.sum(jets.pt, axis=1) > 200)
+            & (met.pt > 50)
         ) 
         
         # regions
