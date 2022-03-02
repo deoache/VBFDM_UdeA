@@ -3,11 +3,13 @@
 ## Setting up a coffea environment with conda
 
 #### Install miniconda (if you do not have it already)
-Preferably, in your `nobackup` area (in LPC) or in your local computer:
+In your lxplus area or in your local computer:
 ```
+# download miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# run and follow instructions  
 bash Miniconda3-latest-Linux-x86_64.sh
-# Follow the instructions to finish the installation
 
 # Make sure to choose `yes` for the following one to let the installer initialize Miniconda3
 # > Do you wish the installer to initialize Miniconda3
@@ -32,26 +34,43 @@ conda create -n coffea-env python=3.7
 conda activate coffea-env
 
 # install packages
-pip install numpy matplotlib pandas scikit-learn coffea correctionlib mplhep hist
-
-# install xrootd
+conda install -c conda-forge coffea
+conda install -c conda-forge numpy    
+conda install -c conda-forge pandas
+conda install -c conda-forge matplotlib
+conda install -c conda-forge awkward
+conda install -c conda-forge uproot
+conda install -c conda-forge mplhep
+conda install -c conda-forge hist
+conda install -c conda-forge correctionlib
+conda install -c conda-forge jupyterlab  
 conda install -c conda-forge xrootd
 ```
 
 
-### Data fileset
+## Data fileset
 
 The fileset json files that contain a dictionary of the files per sample are in the `fileset` directory.
 
-<details><summary>Re-making the input dataset files with DAS</summary>
-<p>
+#### Re-making the input dataset files with DAS
 
-```bash
-# connect to LPC with a port forward to access the jupyter notebook server
-ssh USERNAME@cmslpc-sl7.fnal.gov -L8xxx:localhost:8xxx
+```
+# in your local machine, add the following to the ~/.ssh/config file
+Host lxplus*
+  HostName lxplus7.cern.ch
+  User <your_username>
+  ForwardX11 yes
+  ForwardAgent yes
+  ForwardX11Trusted yes
+Host *_f
+  LocalForward localhost:8800 localhost:8800
+  ExitOnForwardFailure yes
+  
+# connect to lxplus with a port forward to access the jupyter notebook server
+ssh lxplus_f
 
 # create a working directory and clone the repo (if you have not done yet)
-git clone git@github.com:deoache/VBFDM_UdeA.git
+git clone https://github.com/deoache/VBFDM_UdeA.git
 
 # enable the coffea environment, either the python environment
 source coffeaenv/bin/activate
@@ -73,8 +92,4 @@ jupyter notebook --no-browser --port 8xxx
 there should be a link looking like `http://localhost:8xxx/?token=...`, displayed in the output at this point, paste that into your browser.
 You should see a jupyter notebook with a directory listing.
 
-Open `filesetDAS.ipynb` and run it. The json files containing the datasets to be run should be saved in the same `fileset/` directory.
-
-</p>
-</details>
-
+Open `fileset/filesetDAS.ipynb` and run it. The json files containing the datasets to be run should be saved in the same `fileset/` directory.
