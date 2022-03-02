@@ -86,7 +86,7 @@ source /cvmfs/cms.cern.ch/cmsset_default.sh
 
 # open the jupyter notebook on a browser
 cd fileset/
-jupyter notebook --no-browser --port 8xxx
+jupyter notebook --no-browser --port 8800
 ```
 
 there should be a link looking like `http://localhost:8xxx/?token=...`, displayed in the output at this point, paste that into your browser.
