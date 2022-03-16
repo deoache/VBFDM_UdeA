@@ -81,6 +81,9 @@ conda activate coffea-env
 # then activate your proxy
 voms-proxy-init --voms cms --valid 100:00
 
+# activate cmsset
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+
 # open the jupyter notebook on a browser
 cd fileset/
 jupyter notebook --no-browser --port 8800
