@@ -26,5 +26,10 @@
   "ZJetsToNuNu_HT-2500ToInf": 0.005618,
   "WW": "63.21 * 1.878", 
   "WZ": 47.13,
-  "ZZ": 16.523
+  "ZZ": 16.523,
+  "ZToMuMu_M-50To120": 2116,
+  "ZToMuMu_M-120To200": 20.58,
+  "ZToMuMu_M-200To400": 2.89,
+  "ZToMuMu_M-400To800": 0.2515,
+  "ZToMuMu_M-800To1400": 0.01709
 }
