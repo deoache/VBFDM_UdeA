@@ -21,8 +21,8 @@ def main(args):
             )
 
     # save processed data to a parquet file
-    print("saving parquet file...")
-    output_df.to_parquet(f"{args.fpath}/{args.name}.parquet")
+    print("saving compressed parquet file...")
+    output_df.to_parquet(f"{args.fpath}/{args.name}.parquet.gz", index=False, compression="gzip")
 
 
 if __name__ == "__main__":
