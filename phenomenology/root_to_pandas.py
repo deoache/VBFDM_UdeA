@@ -17,10 +17,12 @@ def main(args):
     output_df = pd.DataFrame()
     for dataset, fnames in dmspin0_samples.items():
         for fname in fnames:
+            print(f"processing {dataset} {fname}...")
             output_df = pd.concat(
                 [output_df, get_dataframe(fname, variables, label=dataset)], axis=0
             )
 
+    print("saving csv file...")
     output_df.to_csv(f"{args.fpath}/dmspin0.csv")
 
 
