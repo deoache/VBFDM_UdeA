@@ -10,7 +10,7 @@ def main(args):
         samples = json.load(f)
 
     # variables to read
-    variables = {"MissingET": ["Phi", "MET"], "Jet": ["PT", "Eta", "Phi", "Mass"]}
+    variables = {"MissingET": ["MET", "Eta", "Phi"], "Jet": ["PT", "Eta", "Phi", "Mass"]}
 
     output_df = pd.DataFrame()
     for dataset, fnames in samples.items():
