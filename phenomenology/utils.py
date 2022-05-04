@@ -22,8 +22,8 @@ def add_vbf_composite_vars(events: NanoEventsArray, df: pd.DataFrame) -> None:
 
     df["h"] = ak.to_pandas(ak.sum(jets.pt, axis=1))
     df["invariant_mass"] = ak.to_pandas((leading_jets + subleading_jets).mass)
-    df["delta_phi"] = ak.to_pandas(leading_jets.delta_phi(subleading_jets))
-    df["delta_eta"] = ak.to_pandas(abs(leading_jets.eta - subleading_jets.eta))
+    df["delta_phi"] = ak.to_pandas(np.abs(leading_jets.delta_phi(subleading_jets)))
+    df["delta_eta"] = ak.to_pandas(np.abs(leading_jets.eta - subleading_jets.eta))
     df["min_delta_phi_met_jet"] = ak.to_pandas(min_delta_phi_met_jet(events))
 
 
