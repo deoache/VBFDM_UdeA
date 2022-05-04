@@ -10,7 +10,8 @@
         "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_16/tag_1_delphes_events.root",
         "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_17/tag_1_delphes_events.root",
         "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_19/tag_1_delphes_events.root",
-        "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_20/tag_1_delphes_events.root"
+        "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_20/tag_1_delphes_events.root",
+        "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_21/tag_1_delphes_events.root"
     ],
     "my1000_mx100": [
         "/cms/mc/MG5_aMC_v3_1_1/DMsimp_spin0_VBF/Events/run_02/tag_2_delphes_events.root",
