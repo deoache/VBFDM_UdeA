@@ -21,16 +21,18 @@ def main(args):
             )
 
     # save processed data to a parquet file
-    print("saving compressed parquet file...")
-    output_df.to_parquet(f"{args.fpath}/{args.name}.parquet.gz", index=False, compression="gzip")
+    print("saving compressed parquet files...")
+    index = int(len(output_df) / 2)
+    output_df.iloc[:index, :].to_parquet(f"{args.fpath}/{args.name}_1.parquet.gz", index=False, compression="gzip")
+    output_df.iloc[index:, :].to_parquet(f"{args.fpath}/{args.name}_2.parquet.gz", index=False, compression="gzip")
 
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--spath", dest="spath", default=None, type=str, help="ROOT samples path")
-    parser.add_argument("--fpath", dest="fpath", default="/.", type=str, help="folder path to save the parquet file")
-    parser.add_argument("--name",  dest="name",  default=None, type=str, help="name of the parquet file")
+    parser.add_argument("--spath",  dest="spath",  default=None, type=str, help="ROOT samples path")
+    parser.add_argument("--fpath",  dest="fpath",  default="/.", type=str, help="folder path to save the parquet file")
+    parser.add_argument("--name",   dest="name",   default=None, type=str, help="name of the parquet file")
     args = parser.parse_args()
 
     main(args)
