@@ -1,5 +1,6 @@
 import json
 import argparse
+import numpy as np
 import pandas as pd
 from utils import get_dataframe
 
@@ -20,12 +21,13 @@ def main(args):
                 [output_df, get_dataframe(fname, variables, label=dataset)], axis=0
             )
 
-    # save processed data to a parquet file
+    # split dataframe and save processed data to parquet files
     print("saving compressed parquet files...")
-    index = int(len(output_df) / 2)
-    output_df.iloc[:index, :].to_parquet(f"{args.fpath}/{args.name}_1.parquet.gz", index=False, compression="gzip")
-    output_df.iloc[index:, :].to_parquet(f"{args.fpath}/{args.name}_2.parquet.gz", index=False, compression="gzip")
-
+    nfiles = 5
+    dfs = np.array_split(output_df, nfiles)
+    for i, df in enumerate(dfs):
+        df.to_parquet(f"{args.fpath}/{args.name}_{i}.parquet.gz", index=False, compression="gzip")
+            
 
 if __name__ == "__main__":
 
