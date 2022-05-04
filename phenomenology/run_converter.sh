@@ -1,1 +1,1 @@
-python3 root_to_pandas.py --spath /home/cms-user0/VBFDM_UdeA/phenomenology/dmspin0_samples.json --fpath /home/cms-user0/VBFDM_UdeA/phenomenology/datasets --name dmspin0
+python3 root_to_pandas.py --name dmspin0 --spath /home/cms-user0/VBFDM_UdeA/phenomenology/dmspin0_samples.json --fpath /home/cms-user0/VBFDM_UdeA/phenomenology/datasets 
