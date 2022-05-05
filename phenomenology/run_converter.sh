@@ -1,2 +1,2 @@
-python3 root_to_pandas.py --name dmspin0 --spath /home/cms-user0/VBFDM_UdeA/phenomenology/simulations/dmspin0/dmspin0_samples.json --fpath /home/cms-user0/VBFDM_UdeA/phenomenology/datasets 
-python3 root_to_pandas.py --name dmspin1 --spath /home/cms-user0/VBFDM_UdeA/phenomenology/simulations/dmspin1/dmspin1_samples.json --fpath /home/cms-user0/VBFDM_UdeA/phenomenology/datasets 
+python3 root_to_pandas.py --name dmspin0 --nfiles 5 --spath /home/cms-user0/VBFDM_UdeA/phenomenology/simulations/dmspin0/dmspin0_samples.json --fpath /home/cms-user0/VBFDM_UdeA/phenomenology/datasets 
+python3 root_to_pandas.py --name dmspin1 --nfiles 5 --spath /home/cms-user0/VBFDM_UdeA/phenomenology/simulations/dmspin1/dmspin1_samples.json --fpath /home/cms-user0/VBFDM_UdeA/phenomenology/datasets 
