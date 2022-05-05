@@ -23,8 +23,7 @@ def main(args):
 
     # split dataframe and save processed data to parquet files
     print("saving compressed parquet files...")
-    nfiles = 5
-    dfs = np.array_split(output_df, nfiles)
+    dfs = np.array_split(output_df, args.nfiles)
     for i, df in enumerate(dfs):
         df.to_parquet(f"{args.fpath}/{args.name}_{i}.parquet.gz", index=False, compression="gzip")
             
@@ -35,6 +34,7 @@ if __name__ == "__main__":
     parser.add_argument("--spath",  dest="spath",  default=None, type=str, help="ROOT samples path")
     parser.add_argument("--fpath",  dest="fpath",  default="/.", type=str, help="folder path to save the parquet file")
     parser.add_argument("--name",   dest="name",   default=None, type=str, help="name of the parquet file")
+    parser.add_argument("--nfiles", dest="nfiles", default=3,    type=int, help="number of output parquet files")
     args = parser.parse_args()
 
     main(args)
