@@ -18,7 +18,7 @@ def main(args):
         for fname in fnames:
             print(f"processing {dataset} {fname}...")
             output_df = pd.concat(
-                [output_df, get_dataframe(fname, variables, label=dataset)], axis=0
+                [output_df, get_dataframe(fname, variables, dataset)], axis=0
             )
 
     # split dataframe and save processed data to parquet files

@@ -46,7 +46,7 @@ def add_feature(
         df[f"{branch}_{leaf}".lower()] = ak.to_pandas(events[branch][leaf])
 
 
-def get_dataframe(fname: str, vars: dict, label: str = None) -> pd.DataFrame:
+def get_dataframe(fname: str, vars: dict, dataset: str = None) -> pd.DataFrame:
     """
     return a pandas DataFrame from a ROOT file
 
@@ -54,24 +54,23 @@ def get_dataframe(fname: str, vars: dict, label: str = None) -> pd.DataFrame:
       path to the file
     vars:
       branches (keys) and leaves (values) to be read
-    label:
-      dataset or sample label (optional)
+    dataset:
+      dataset name (optional)
     """
     events = NanoEventsFactory.from_root(
         fname, treepath="Delphes", schemaclass=DelphesSchema
     ).events()
 
     output_df = pd.DataFrame()
+    output_df["dataset"] = dataset
+
     for branch in vars:
         for leaf in vars[branch]:
             if events[branch].layout.purelist_isregular:
-                add_feature(output_df, events, branch, leaf)
+                add_feature(output_df, events, branch, leaf, jagged=False)
             else:
-                add_feature(output_df, events, branch, leaf, 4, jagged=True)
+                add_feature(output_df, events, branch, leaf, jagged=True)
 
     add_vbf_composite_vars(events, output_df)
-
-    if label:
-        output_df["label"] = label
 
     return output_df
